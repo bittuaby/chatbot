@@ -1,0 +1,6 @@
+step1,checkNumbers
+step2,checkEntry
+step3,checkSearchType
+step4,checkDateRange
+step5,filterPayment
+step6,selectPayment

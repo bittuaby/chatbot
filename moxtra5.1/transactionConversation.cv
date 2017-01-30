@@ -1,0 +1,15 @@
+step1,Okay you want to do corporate transfer. Enter the preformat code
+step2,checkPreFormat
+step3,Thanks. Enter Beneficiary name
+step4,checkBeneficiary
+step5,Thanks. Enter the currency
+step6,checkCurrency
+step7,Ok.. So when do you want to do the transfer
+step8,checkDate
+step9,Enter the amount to transfer
+step10,checkAmount
+step11,Enter the transfer details
+step12,checkDetails
+step13,Can you confirm the payment details so that i can go ahead(yes/no)
+step14,checkConfirmation
+step15,Transaction sucessful. Thanks for using Citi Bank.

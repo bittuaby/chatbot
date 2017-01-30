@@ -1,0 +1,37 @@
+(dp0
+S'status'
+p1
+S'Success'
+p2
+sS'beneficiaryName'
+p3
+S'ABC Holdings'
+p4
+sS'account'
+p5
+S'32103012630000000055203221'
+p6
+sS'no'
+p7
+I1
+sS'requestType'
+p8
+S'auth'
+p9
+sS'notes'
+p10
+VStopping the payment\u000aon your request.
+p11
+sS'referenceNo'
+p12
+S'156789987653'
+p13
+sS'amount'
+p14
+S'743'
+p15
+sS'date'
+p16
+S'27/11/2016 12:15:02'
+p17
+s.

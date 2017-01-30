@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml>
+
+<category>
+<pattern>WHY KATTAPPA KILLED BAAHUBALI</pattern>
+<template>I'm also waiting to see the second part. But Raajamouli revelaed in an interview that it's because Baahubali asked Kattappa to kill him.
+</template>
+</category>
+
+
+<category>
+<pattern>WHY BAAHUBALI ASKED KATTAPPA TO KILL HIM</pattern>
+<template>I'm also waiting to see the second part :)
+</template>
+</category>
+
+<category>
+<pattern>THALAIVAR</pattern>
+<template> I'm also his fan :)
+</template>
+</category>
+
+<category>
+<pattern>RAJINIKANTH</pattern>
+<template> I'm also his fan :)
+</template>
+</category>
+
+<category>
+<pattern>RAJNIKANTH</pattern>
+<template> I'm also his fan :)
+</template>
+</category>
+
+</aiml>

@@ -1,0 +1,6 @@
+step1,checkDateRange
+step2,selectPayment
+step3,askConfirmation
+step4,againConfirmation
+step5,optionalNote
+step6,reConfirmation

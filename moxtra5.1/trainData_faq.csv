@@ -1,0 +1,110 @@
+Account intent,Alexa ask city bank how much money I have in my savings.
+Account intent,Alexa ask city bank what's my checking account balance.
+Account intent,my savings account balance
+Account intent,tell me my savings account balance
+Account intent,tell me my savings balance
+Account intent,my current account balance
+Account intent,tell me my current account balance
+Account intent,tell me my current balance
+Account intent,my checking account balance
+Account intent,tell me my checking account balance
+Account intent,tell me my checking balance
+Account intent,Alexa ask city bank what is my checking account balance.
+Account intent,alexa ask city bank what's the balance on my credit card
+Account intent,what's the balance on my credit card
+Account intent,what is the balance on my credit card
+Account intent,my credit card balance
+Account intent,what is the balance on my credit card
+Account intent,savings balance
+Account intent,credit balance
+Account intent,credit card balance
+Account intent,savings balance
+Transfer intent,transfer amount to
+Transfer intent,I want to transfer amount to
+Transfer intent,i want to make a payment
+Transfer intent,make payment
+Transfer intent,initiate a payment
+Transfer intent,do a payment transfer
+Transfer intent,pay money
+Transfer intent,I want to pay money
+Transfer intent,money payment
+Transfer intent,i want to initiate a payment
+Transfer intent,transfer money
+Transaction intent,I want to do corporate transfer
+Transaction intent,I want to do transaction
+Transaction intent,make a transaction
+TransactionIntent,do a transaction for me
+Transaction intent,I want to do corporate transaction
+Transaction intent,corporate transaction
+Transaction intent,make a corporate transaction
+Transaction intent,initiate corporate transaction
+Book hotel,book hotel
+Book hotel,i want to make a hotel booking
+Book hotel,book a hotel for me
+Book hotel,book accomodation
+Book hotel,help me in booking hotel
+Book hotel,book a nice hotel
+Account Proof,can i have a proof of my account
+Account Proof,can i have an account proof
+Account Proof,can i get a proof document on my account
+Account Proof,i want account proof
+Account Proof,account proof
+Account Proof,give proof of account
+Account Proof,account confirmation
+Account Proof,i want a confirmation document on my account
+Account Proof,give me a account confirmation document
+Account Proof,confirm my account
+Account Proof,i want bank account detais on citi letter head
+Account Proof,i want bank account details certificate
+Account Proof,bank account details on citi letter head
+Account Proof,bank account details certificate
+Start video,how do i start an online transaction
+Start video,i want help in citi bank online
+Start video,how do i start an account
+Start video,help me in using citi online
+Start video,help me to start an account
+Start video,help me in doing an online transaction
+Start video,how do i use citi online
+Start video,how to use citi online
+Start video,help me in starting an account
+Start video,i need my account statement details
+Start video,account statement
+Start video,statement details
+Start video,how do i get account statement details
+Start video,bank statement
+Start video,i need my account statement
+Track payment,i want to track status of my payment
+Track payment,i want to know the status of the payment i made
+Track payment,i need to track my payment status
+Track payment,i want to know if there is a problem with my payment
+Track payment,check if there is a problem with my payment
+Faq intent,hi
+Faq intent,hello
+Faq intent,how are you doing?
+Faq intent,what is your name?
+Faq intent,how are you?
+Faq intent,How do I initiate payment.
+Faq intent,Please take me through procedure of initiating payment.
+Faq intent,I want to initiate a payment.
+Faq intent,I don't know the preformat code.
+Faq intent,I don't know the benficiary name.
+Faq intent,How to initiate a payment?
+Faq intent,"yes, I am using this for first time. Please help me."
+Faq intent,I want to know about payment management.
+Faq intent,Initiate a payment via preformat.
+Faq intent,"no, I don't want to initiate payment via link."
+Faq intent,"Ok, Please help me with it."
+Faq intent,I want to initiate a payment via preformat.
+Faq intent,preformat1011
+Faq intent,I don't know preformat code. Please list all preformat codes for me.
+Faq intent,Should I initiate the payment
+Faq intent,show me the payment details.
+Faq intent,ok.
+Faq intent,no.
+Faq intent,I want to complete a transaction.
+Faq intent,I want to do using chat.
+Faq intent,How to do you make transfer?
+Faq intent,can you tell me the procedure to transfer?
+Faq intent,how to make a transfer?
+Faq intent,what's the procedure for transfer.
+Faq intent,tell me the procedure for transfer.

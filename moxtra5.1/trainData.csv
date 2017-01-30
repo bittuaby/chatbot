@@ -1,0 +1,97 @@
+Account intent,Alexa ask city bank how much money I have in my savings.
+Account intent,Alexa ask city bank what's my checking account balance.
+Account intent,my savings account balance
+Account intent,tell me my savings account balance
+Account intent,tell me my savings balance
+Account intent,my current account balance
+Account intent,tell me my current account balance
+Account intent,tell me my current balance
+Account intent,my checking account balance
+Account intent,tell me my checking account balance
+Account intent,tell me my checking balance
+Account intent,Alexa ask city bank what is my checking account balance.
+Account intent,alexa ask city bank what's the balance on my credit card
+Account intent,what's the balance on my credit card
+Account intent,what is the balance on my credit card
+Account intent,my credit card balance
+Account intent,what is the balance on my credit card
+Account intent,savings balance
+Account intent,credit balance
+Account intent,credit card balance
+Account intent,savings balance
+Transfer intent,transfer amount to
+Transfer intent,I want to transfer amount to
+Transfer intent,i want to make a payment
+Transfer intent,make payment
+Transfer intent,i want to initiate a payment via preformat
+Transfer intent,initiate a payment
+Transfer intent,do a payment transfer
+Transfer intent,pay money
+Transfer intent,I want to pay money
+Transfer intent,money payment
+Transfer intent,i want to initiate a payment
+Transfer intent,transfer money
+Transfer intent,can i make payment from debit account with preformat code preformatabc today
+Transfer intent,can i make a payment from debit account with preformat code preformatabc today
+Transfer intent,make payment from my debit account with preformat code preformatabc today
+Transfer intent,initiate payment from debit account with preformat code preformatabc
+Transaction intent,I want to do corporate transfer
+Transaction intent,I want to do transaction
+Transaction intent,make a transaction
+Transaction intent,do a transaction for me
+Transaction intent,I want to do corporate transaction
+Transaction intent,corporate transaction
+Transaction intent,make a corporate transaction
+Transaction intent,initiate corporate transaction
+Book hotel,book hotel
+Book hotel,i want to make a hotel booking
+Book hotel,book a hotel for me
+Book hotel,book accomodation
+Book hotel,help me in booking hotel
+Book hotel,book a nice hotel
+Account Proof,can i have a proof of my account
+Account Proof,can i have an account proof
+Account Proof,can i get a proof document on my account
+Account Proof,i want account proof
+Account Proof,account proof
+Account Proof,give proof of account
+Account Proof,account confirmation
+Account Proof,i want a confirmation document on my account
+Account Proof,give me a account confirmation document
+Account Proof,confirm my account
+Account Proof,i want bank account detais on citi letter head
+Account Proof,i want bank account details certificate
+Account Proof,bank account details on citi letter head
+Account Proof,bank account details certificate
+Start video,how do i start an online transaction
+Start video,i want help in citi bank online
+Start video,how do i start an account
+Start video,help me in using citi online
+Start video,help me to start an account
+Start video,help me in doing an online transaction
+Start video,how do i use citi online
+Start video,how to use citi online
+Start video,help me in starting an account
+Start video,i need my account statement details
+Start video,need account statement details
+Start video,account statement
+Start video,statement details
+Start video,how do i get account statement details
+Start video,bank statement
+Start video,i need my account statement
+Track payment,i want to track status of my payment
+Track payment,i want to know the status of the payment i made
+Track payment,i need to track my payment status
+Track payment,i want to know if there is a problem with my payment
+Track payment,check if there is a problem with my payment
+Track payment,track payment status
+Track payment,track my payment made for
+Track payment,what is my payment status
+Authorize stop,i want to know about the payments made last week where remitting bank wants to modify the payment
+Authorize stop,what are the payments made last week remitting bank wants to modify payment
+Authorize stop,know about payments made last friday where remitting bank wants to modify payment
+Authorize stop,i want to know about the payments made last week where remitting bank wants to stop the payment
+Authorize stop,what are the payments made last week remitting bank wants to stop payment
+Authorize stop,know about payments made last friday where remitting bank wants to stop payment
+Authorize stop,i want to know about payments made last day where remitter bank needs to stop the payment
+Authorize stop,i want to know about payments made last day where remitter bank needs to modify the payment

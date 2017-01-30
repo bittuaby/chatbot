@@ -1,0 +1,528 @@
+import os
+import os.path
+import datetime
+import requests
+import citiService
+import re
+def getClassifiedText(userid):
+        print "get classified text"
+        filename="sessions/"+userid+".tx"
+        if os.path.isfile(filename):
+                with open(filename) as f:
+                        lines = f.readlines()
+			return lines[4].split(',')[1]
+        else:
+                return "nil"
+def getAccountBalanceFlag(userid):
+        print "get classified text"
+        filename="sessions/"+userid+".tx"
+        if os.path.isfile(filename):
+                with open(filename) as f:
+                        lines = f.readlines()
+			return lines[5].split(',')[1]
+        else:
+                return "nil"
+
+
+def setAccountBalanceFlag(userid,value):
+        print "set session"
+        filename="sessions/"+userid+".tx"
+        lines=""
+        if os.path.isfile(filename):
+                with open(filename) as f:
+                        lines = f.readlines()
+                        lines[5]=userid+","+str(value)+"\n"
+                with open(filename,'w')as f:
+                        f.writelines(lines)
+        else:
+                file = open(filename,'w')
+                file.write(userid+","+classification+"\n")
+                file.close()
+def setSessionClassification(userid,classification):
+        print "set session"
+        filename="sessions/"+userid+".tx"
+        lines=""
+        if os.path.isfile(filename):
+                with open(filename) as f:
+                        lines = f.readlines()
+                        lines[0]=userid+","+classification+"\n"
+                with open(filename,'w')as f:
+                        f.writelines(lines)
+        else:
+                file = open(filename,'w')
+                file.write(userid+","+classification+"\n")
+                file.close()
+
+
+def setIntentSteps(userid,step,classification):
+        print "set session for ",userid,",",step,",",classification
+        filename="sessions/"+userid+".tx"
+	lines=""
+        if os.path.isfile(filename):
+                with open(filename) as f:
+                        lines = f.readlines()
+                        lines[1]=userid+","+step+"\n"
+		with open(filename,'w') as f:
+			f.writelines(lines)
+        else:
+                file = open(filename,'w')
+                file.write(userid+","+classification+"\n"+userid+",step1\n")
+                file.close()
+
+
+
+def hasNumbers(inputString):
+	return any(char.isdigit() for char in inputString)
+
+
+def writeToSummary(userid,key,value):
+	filename=userid+"_transfer.sum"
+	f=open(filename,"a+")
+	output=[]
+	lines=f.readlines()
+	for line in lines:
+		if(line.split(" : ")[0].lower()!=key.lower()):
+			output.append(line)
+	output.append(key+" : "+value+"\n")
+	f.close()
+	os.remove(userid+"_transfer.sum")
+	f=open(filename,"a+")
+	f.writelines(output)		
+	f.close()
+	print "wrote details................"
+def writeToSummary_old(userid,key,value):
+	filename=userid+"_transfer.sum"
+	f=open(filename,"a+")
+	f.write(key+" : "+value+"\n")
+	print "wrote details................"
+
+def getFromSummary(userid,key):
+	print "userid:",userid
+	with open(userid+"_transfer.sum") as f:
+		lines=f.readlines()
+		for line in lines:
+			if(line.split(" : ")[0].lower()==key.lower()):
+				return str(line.split(" : ")[1])
+		return 0
+
+def getConversationResponse(userid,step,inputText):
+	print "inside get Conversation response  ",step," : ",inputText
+        with open("transferConversation.cv") as f:
+                lines=f.readlines()
+                for line in lines:
+			print line.split(",")[0]
+			print "checking if ",line.split(",")[0]," equals ",step
+			checkFile=str(line.split(",")[0]).strip()
+			step=step.strip()
+                        if(checkFile==step):
+                                reply=line.split(",")[1].strip()
+				print step," : ",reply
+                                if(reply=="checkBotOrLink"):
+                                        if("yes" in inputText.lower() or "ok" in inputText.lower()):
+						reply="next"
+						stepCount=step[4:]
+						stepCount=int(stepCount)
+						stepCount=stepCount+1
+						setIntentSteps(userid,"step"+str(stepCount),"Transfer intent")
+					elif("no" in inputText.lower()):
+						reply="Great.. This is the link to the web page"
+						reply=reply+"\nhttps://www.citidirectbe.com/893489379"
+                                        	setSessionClassification(userid,"nil")
+                                        	setIntentSteps(userid,"step1","nil")
+						setAccountBalanceFlag(userid,0)
+                                        	delname=userid+"_transfer.sum"
+						if(os.path.isfile(delname)):
+                                        		os.remove(delname)
+
+                                        else:
+                                                reply="Do you want to proceed through chat bot (yes/no)"
+                                        return reply
+				elif(reply=="checkSearchPreformat"):
+					classifiedText=getClassifiedText(userid)
+					if (" to " in classifiedText.lower() and " for " in classifiedText.lower()):
+						print "to and for present"
+						reply="Would you like to search this in pre formats (yes/no)?"
+                                                stepCount=step[4:]
+                                                stepCount=int(stepCount)
+                                                stepCount=stepCount+1
+                                                setIntentSteps(userid,"step"+str(stepCount),"Transfer intent")
+
+				
+						
+					else:
+
+
+						r = re.compile('from(.*?)with preformat code(.*?)')
+						m = r.search(classifiedText)
+						if m:
+							print "hshjj ******* regex matched"
+							setAccountBalanceFlag(userid,1)
+        	                                	reply="next"
+	                	                        stepCount=step[4:]
+        	                	                stepCount=int(stepCount)
+                	                	        stepCount=stepCount+3
+                        	                	setIntentSteps(userid,"step"+str(stepCount),"Transfer intent")
+
+						else:
+							print "to and for not present"
+        	                                	reply="next"
+	                	                        stepCount=step[4:]
+        	                	                stepCount=int(stepCount)
+                	                	        stepCount=stepCount+2
+                        	                	setIntentSteps(userid,"step"+str(stepCount),"Transfer intent")
+					return reply	
+				elif(reply=="SearchPreformat"):
+					print "search in preformats*******************"
+					classifiedText=getClassifiedText(userid)
+					if("yes" in inputText.lower()):
+						beneficiaryName=""
+						r = re.compile('to(.*?)for')
+						m = r.search(classifiedText)
+						if m:
+							beneficiaryName=str(m.group(1)).strip()
+							print "regex matched ",beneficiaryName
+						else:
+							print "no regex matched"
+						
+						preformList=citiService.getUserPreformats("jd12345")
+						outputList=[]
+						if (beneficiaryName !=""):
+							for preform in preformList:
+								if str(preform["beneficiaryName"]).lower()==beneficiaryName.lower():
+									tup=(str(preform['code']),str(preform['beneBankName']))
+									outputList.append(tup)
+						if(len(outputList)==0):
+							reply="next"
+                                                	stepCount=step[4:]
+	                                                stepCount=int(stepCount)
+        	                                        stepCount=stepCount+2
+                	                                setIntentSteps(userid,"step"+str(stepCount),"Transfer intent")
+						else:
+							reply=""
+                                                	stepCount=step[4:]
+	                                                stepCount=int(stepCount)
+        	                                        stepCount=stepCount+2
+                	                                setIntentSteps(userid,"step"+str(stepCount),"Transfer intent")
+
+							for output in outputList:
+								reply=reply+str(output)+"\n"
+							
+					elif('no' in inputText.lower()):
+                                                reply="Transaction cancelled. Thanks for using Citi Bank."
+                                                setSessionClassification(userid,"nil")
+                                                setIntentSteps(userid,"step1","nil")
+
+                                                delname=userid+"_transfer.sum"
+						if(os.path.isfile(delname)):
+	                                                os.remove(delname)
+					else:
+						reply="Would you like to search this in preformats (yes/no)?"
+					return reply
+
+                                elif(reply=="checkPreFormat"):
+					flag=0
+					preformList=citiService.getUserPreformats("jd12345")
+					for preform in preformList:
+						if str(preform["code"]).lower()==inputText.lower():
+                                                        	writeToSummary(userid,"Preformat Code",str(preform["code"]).lower())
+                                                        	writeToSummary(userid,"Beneficiary Name",str(preform["beneficiaryName"]).lower())
+                                                        	writeToSummary(userid,"Beneficiary Account Number",str(preform["account"]).lower())
+                                                        	writeToSummary(userid,"Bank Routing Code",str(preform["code"]).lower())
+                                                        	writeToSummary(userid,"Amount",str(preform["amount"]).lower())
+                                                        	writeToSummary(userid,"Currency",str(preform["currency"]).lower())
+                                                        	writeToSummary(userid,"Account Type","Savings")
+								flag=1
+								break
+
+					if flag==1:
+						reply="next"
+                                                stepCount=step[4:]
+                                                stepCount=int(stepCount)
+                                                stepCount=stepCount+2
+                                                setIntentSteps(userid,"step"+str(stepCount),"Transfer intent")
+                                                #elif inputText.lower()=="show all" or flag==0:
+                                        elif inputText.lower()=="show all" :
+						print "no pre format found"
+                                                preformatList=[]
+						preformList=citiService.getUserPreformats("jd12345")
+						for preform in preformList:
+							tup=(str(preform["code"]).lower(),str(preform["beneBankName"]).lower())
+                                                        preformatList.append(tup)
+
+                                                reply="Please select one of the following options"
+                                                for each in preformatList:
+                                                	reply=reply+"\n"+str(each)
+						print "*************************************",reply
+					elif("none" in inputText.lower() or "unable" in inputText.lower() or "not" in inputText.lower()):
+						reply="You can search by payment amount,account no"
+                                                stepCount=step[4:]
+                                                stepCount=int(stepCount)
+                                                stepCount=stepCount+1
+                                                setIntentSteps(userid,"step"+str(stepCount),"Transfer intent")
+					elif flag==0:
+	                                	reply="I am unable to find a template with the code you enetered.\nMake sure you are entering the right code\n"
+								
+                                	return reply
+				elif(reply=="secondCheckPreformat"):
+						r = re.compile('search(.*?)where (.*?) is (.*?)')
+						m = r.search(inputTex.lower())
+						preformList=[]
+						preformList=citiService.getUserPreformats("jd12345")
+						if m:
+							beneficiaryName=str(m.group(3)).strip()
+							outputList=[]
+							if (beneficiaryName !=""):
+							for preform in preformList:
+								if str(preform["beneficiaryName"]).lower()==beneficiaryName.lower():
+									tup=(str(preform['code']),str(preform['beneBankName']))
+									outputList.append(tup)
+
+
+						elif hasNumbers(inputText):
+							amount=-1
+							for word in inputText.split(" "):
+								if word.isdigit():
+									amount=int(word)
+							
+							#find preformats with amt
+						else:
+							#handover
+						return reply
+				elif(reply=="checkDate"):
+					if("today" in inputText.lower() or "now" in inputText.lower()):
+						date=datetime.datetime.now()
+						writeToSummary(userid,"Date",str(date))
+                                                reply="next"
+                                                stepCount=step[4:]
+                                                stepCount=int(stepCount)
+                                                stepCount=stepCount+1
+                                                setIntentSteps(userid,"step"+str(stepCount),"Transfer intent")
+					else:
+						writeToSummary(userid,"Date",inputText.lower())
+                                                reply="next"
+                                                stepCount=step[4:]
+                                                stepCount=int(stepCount)
+                                                stepCount=stepCount+1
+                                                setIntentSteps(userid,"step"+str(stepCount),"Transfer intent")
+
+					return reply
+
+					
+				elif(reply=="checkAmount"):
+					text=inputText.lower().split(" ")
+					amount=0
+					f=0
+					for word in text:
+						if str(word).isdigit():
+							amount=word
+							f=1
+							break
+					if(f==1):
+						writeToSummary(userid,"Amount",amount)
+                                                reply="next"
+						stepCount=step[4:]
+						stepCount=int(stepCount)
+						stepCount=stepCount+1
+						setIntentSteps(userid,"step"+str(stepCount),"Transfer intent")
+
+                                        else:
+                                                reply="Please specify the amount"
+                                        return reply
+
+				elif(reply=="checkAccountBalance"):
+					print "inside check account balance"
+					flag=getAccountBalanceFlag(userid)
+					print "888888888888888acntbalflag",flag
+					if (flag.strip()=="1"):
+						amount=getFromSummary(userid,"amount")
+						print amount
+						if (amount<=500):
+	                                        	reply="next"
+		                                        stepCount=step[4:]
+		                                        stepCount=int(stepCount)
+		                                        stepCount=stepCount+2
+		                                        setIntentSteps(userid,"step"+str(stepCount),"Transfer intent")
+						else:
+							reply="Sorry.. You cant make this payment.\nThe payment amount "+str(amount)+"is exceeding the debit account balance which is EUR 500"
+							reply=reply+"\n\n Do you want to change the amount for this payment (yes/no)"
+		                                        stepCount=step[4:]
+		                                        stepCount=int(stepCount)
+		                                        stepCount=stepCount+1
+		                                        setIntentSteps(userid,"step"+str(stepCount),"Transfer intent")
+
+		
+					else:
+	                                        reply="next"
+	                                        stepCount=step[4:]
+	                                        stepCount=int(stepCount)
+	                                        stepCount=stepCount+2
+	                                        setIntentSteps(userid,"step"+str(stepCount),"Transfer intent")
+					return reply
+
+				elif(reply=="checkAmountChange"):
+					print "check amount change"
+					if("yes" in inputText.lower() and hasNumbers(inputText)):
+						inputList=inputText.split(" ")
+						f=0
+						for word in inputList:
+							if(word.isdigit()):
+								if(int(word)<=500):
+									writeToSummary(userid,"Amount",word)
+									f=1
+									break
+						if f==1:
+                		                        reply="next"
+                                		        stepCount=step[4:]
+		                                        stepCount=int(stepCount)
+                		                        stepCount=stepCount+1
+                                		        setIntentSteps(userid,"step"+str(stepCount),"Transfer intent")
+						else:
+							reply="The payment amount is exceeding the debit account balance which is EUR 500"
+							
+					elif(hasNumbers(inputText)):
+						inputList=inputText.split(" ")
+						f=0
+						for word in inputList:
+							if(word.isdigit()):
+								if(int(word)<=500):
+									writeToSummary(userid,"Amount",word)
+									f=1
+									break
+						if f==1:
+                		                        reply="next"
+                                		        stepCount=step[4:]
+		                                        stepCount=int(stepCount)
+                		                        stepCount=stepCount+1
+                                		        setIntentSteps(userid,"step"+str(stepCount),"Transfer intent")
+						else:
+							reply="The payment amount is exceeding the debit account balance which is EUR 500"
+					elif("no" in inputText.lower()):
+                                        	setSessionClassification(userid,"nil")
+                                        	setIntentSteps(userid,"step1","nil")
+						setAccountBalanceFlag(userid,0)
+
+                                        	delname=userid+"_transfer.sum"
+                                        	os.remove(delname)
+						reply="Cancelling Transaction due to insufficient balance"
+					else:
+						reply="Do you want to change the amount for this payment (yes\no) /"
+
+						
+					return reply
+				elif(reply=="checkDetails"):
+					writeToSummary(userid,"Details",inputText.lower())
+                                        reply="next"
+                                        stepCount=step[4:]
+                                        stepCount=int(stepCount)
+                                        stepCount=stepCount+1
+                                        setIntentSteps(userid,"step"+str(stepCount),"Transfer intent")
+					return reply
+				elif(reply=="checkFutureConfirmation"):
+					if("yes" in inputText.lower() or "ok" in inputText.lower()):
+                                                setSessionClassification(userid,"nil")
+                                                setIntentSteps(userid,"step1","nil")
+                                                delname=userid+"_transfer.sum"
+                                                os.remove(delname)
+
+                                                reply="Got it\n\nYou will be notified every monday when this payment is made"
+                                        elif("no" in inputText.lower()):
+                                                setSessionClassification(userid,"nil")
+                                                setIntentSteps(userid,"step1","nil")
+						setAccountBalanceFlag(userid,0)
+                                                delname=userid+"_transfer.sum"
+                                                os.remove(delname)
+
+                                                reply="Ok"
+                                        else:
+                                                reply="Do you want to be notified about future payments (yes/no)"
+
+                                        return reply
+
+				elif(reply=="checkFuturePayments"):
+					print "inside check future payments...."
+					dayList=["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]
+					if "every" in inputText.lower() and (any(day in inputText.lower() for day in dayList)):
+						reply="next"
+	                                        stepCount=step[4:]
+        	                                stepCount=int(stepCount)
+                	                        stepCount=stepCount+1
+                        	                setIntentSteps(userid,"step"+str(stepCount),"Transfer intent")
+						return reply
+					else:
+                                        	setSessionClassification(userid,"nil")
+                                        	setIntentSteps(userid,"step1","nil")
+						setAccountBalanceFlag(userid,0)
+
+                                        	delname=userid+"_transfer.sum"
+                                        	os.remove(delname)
+						reply="aiml"
+						return reply
+
+				elif(reply=="checkReference"):
+					writeToSummary(userid,"Reference Number",inputText.lower())
+                                        reply="next"
+                                        stepCount=step[4:]
+                                        stepCount=int(stepCount)
+                                        stepCount=stepCount+1
+                                        setIntentSteps(userid,"step"+str(stepCount),"Transfer intent")
+					return reply
+				elif(reply=="showDetailsConfirm"):
+					print "inside show details confirm"
+					fname=userid+"_transfer.sum"
+					
+					
+					with open(fname)as f:
+						lines=f.readlines()
+						#for line in lines:
+						#	if(line.split(" : ")[0]=="Amount"):
+						#		amount=str(line.split(" : ")[1])
+						#	elif(line.split(" : ")[0]=="Date"):
+						#		date=str(line.split(" : ")[1])
+						#	elif(line.split(" : ")[0]=="Account Name"):
+						#		acname=str(line.split(" : ")[1])
+					reply=str(lines)+"\n\n"
+					reply=reply+"To proceed enter yes or no to cancel the transaction"
+                                        stepCount=step[4:]
+                                        stepCount=int(stepCount)
+                                        stepCount=stepCount+1
+                                        setIntentSteps(userid,"step"+str(stepCount),"Transfer intent")
+					print "shgdshj*****************hgjg:",reply
+					return reply
+				elif reply=="checkConfirmation":			
+					if("yes" in inputText.lower() or "ok" in inputText.lower()):
+                                                reply="Payment Initiated.. Thanks for using HelloCiti.."
+                                                stepCount=step[4:]
+                                                stepCount=int(stepCount)
+                                                stepCount=stepCount+1
+                                                setIntentSteps(userid,"step"+str(stepCount),"Transfer intent")
+                                        elif("no" in inputText.lower()):
+                                                reply="Transaction cancelled. Thanks for using Citi Bank."
+                                                setSessionClassification(userid,"nil")
+                                                setIntentSteps(userid,"step1","nil")
+						setAccountBalanceFlag(userid,0)
+
+                                                delname=userid+"_transfer.sum"
+                                                os.remove(delname)
+                                        else:
+                                                reply="please confirm the payment (yes/no)"
+
+                                        return reply
+
+				else:
+					stepCount=step[4:]
+					stepCount=int(stepCount)
+					stepCount=stepCount+1
+					setIntentSteps(userid,"step"+str(stepCount),"Transfer intent")
+					#if (stepCount==12):
+                                        #	setSessionClassification(userid,"nil")
+                                        #	setIntentSteps(userid,"step1","nil")
+                                        #	delname=userid+"_transfer.sum"
+                                        #	os.remove(delname)
+
+					return reply
+
+
+				
+
+
+

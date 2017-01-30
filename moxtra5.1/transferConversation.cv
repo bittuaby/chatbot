@@ -1,0 +1,24 @@
+step1,Okay.. Here is the link for this\nwww.citidirectbe.com/893489379\nOr would you like to guide you through this via chat (yes/no)
+step2,checkBotOrLink
+step3,checkSearchPreformat
+step4,SearchPreformat
+step5,Got it . What is the preformat code ?
+step6,checkPreFormat
+step7,secondCheckPreformat
+step8,confirmSearch
+step9,reConfirmSearch
+step10,Would you like to change the default value for payment amount and currency etc?
+step11,checkReference
+step12,checkAmount
+step13,checkCurrency
+step14,Please enter the payment details
+step15,checkDetails
+step16,When do you want to make this payment
+step17,checkDate
+step18,checkAccountBalance
+step19,checkAmountChange
+step20,showDetailsConfirm
+step21,checkConfirmation
+step22,checkFuturePayments
+step23,Do you want to be notified about future payments (yes/no) ?
+step24,checkFutureConfirmation

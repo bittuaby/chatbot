@@ -1,0 +1,11 @@
+step1,Okay.. You want to transfer money. You can transfer either through link or through chatbot.\nDo you want to proceed through chat bot ? (yes/no)
+step2,checkBotOrLink
+step3,Select the account you want to transfer in.. \nSavings Account\nSavings Account2\nSavings Account3
+step4,checkAccount
+step5,Ok.. when do you want to transfer
+step6,checkDate
+step7,Enter the amount in Dollars
+step8,checkAmount
+step9,giveSummary
+step10,checkConfirmation
+step11,Transaction succesful. Thanks for using CitiBank\nPlease let me know if i could help you with something else

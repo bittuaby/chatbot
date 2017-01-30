@@ -1,0 +1,2 @@
+import paste
+print "hi"

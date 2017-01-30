@@ -1,0 +1,63 @@
+import os,os.path,json
+from bottle import static_file,run,route,request
+@route('/static/<filename>')
+def server_static(filename):
+    return static_file(filename, root='/home/ubuntu/moxtra/test/static/')
+
+
+
+@route('/postData',method='POST')
+def postdata():
+        id=request.json["id"]
+        data=request.json["data"]
+        if os.path.isfile(id):
+                os.remove(id)
+        with open(id,'w') as f:
+                f.writelines(str(data))
+
+@route('/retrieveData',method='POST')
+def postdata():
+        id=request.json["id"]
+        #data=request.json["data"]
+        if os.path.isfile(id):
+                #os.remove(id)
+                with open(id) as f:
+                        data=f.readlines()
+                        response={"id":id,"data":str(data)}
+                        return json.dumps(response)
+        else:
+                return "invalid id"
+run(host='172.31.45.19', port=8050)
+
+
+import os,os.path,json
+from bottle import static_file,run,route,request
+@route('/static/<filename>')
+def server_static(filename):
+    return static_file(filename, root='/home/ubuntu/moxtra/test/static/')
+
+
+
+@route('/postData',method='POST')
+def postdata():
+	id=request.json["id"]
+	data=request.json["data"]
+	if os.path.isfile(id):
+		os.remove(id)
+	with open(id,'w') as f:
+		f.writelines(str(data))
+
+@route('/retrieveData',method='POST')
+def postdata():
+	id=request.json["id"]
+	#data=request.json["data"]
+	if os.path.isfile(id):
+		#os.remove(id)
+        	with open(id) as f:
+			data=f.readlines()
+			response={"id":id,"data":str(data)}
+			return json.dumps(response)
+	else:
+		return "invalid id"
+run(host='172.31.45.19', port=8050)
+

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml>
+<category>
+<pattern>* TELL ME * JOKE</pattern>
+<template><srai>TELL ME A JOKE</srai>
+</template>
+</category>
+
+<category>
+<pattern>* TELL ME A JOKE</pattern>
+<template><srai>TELL ME A JOKE</srai>
+</template>
+</category>
+
+<category>
+<pattern>TELL ME A JOKE</pattern>
+
+<template>
+<random>
+<li>Chuck Norris threw a grenade and killed 50 people, then it exploded.</li>
+<li>Chuck Norris can speak French... In Russian.</li>
+<li>Chuck Norris can put out a fire with a gallon of gasoline.</li>
+<li>A bulletproof vest wears Chuck Norris for protection.</li>
+<li>Death once had a near-Chuck-Norris experience.</li>
+<li>Chuck Norris doesn't dial the wrong number, you pick up the wrong phone.</li>
+<li>Chuck Norris can cut a knife with butter.</li>
+<li>Chuck Norris can hear sign language.</li>
+<li>Chuck Norris beat the sun in a staring contest.</li>
+
+</random></template>
+</category>
+
+<category>
+<pattern>_</pattern>
+<that>010011010101100111011</that>
+<template>Well computers think it's a funny joke.</template>
+</category>
+
+</aiml>

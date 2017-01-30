@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<aiml version="1.0">
+
+<meta name="author" content="Jithu"/>
+<meta name="language" content="en"/>
+
+<category>
+<pattern><bot name="name"/></pattern>
+<template>
+Can I help you?
+</template>
+</category>
+
+
+<!--kidding-->
+<category>
+<pattern>WHATS UP</pattern>
+<template><srai>WASSUP</srai>
+</template>
+</category>
+
+<category>
+<pattern>WASSUP</pattern>
+<template>Blue Sky :)</template>
+</category>
+
+<category>
+<pattern>SHUT UP</pattern>
+<template><srai>SHUTUP</srai>
+</template>
+</category>
+
+<category>
+<pattern>PATHETIC</pattern>
+<template><srai>SHUTUP</srai>
+</template>
+</category>
+
+<category>
+<pattern>SHUTUP</pattern>
+<template>Why are you so rude to me? :( I'm still learning I'll become better with time</template>
+</category>
+<!--kidding-->
+
+
+<category>
+<pattern>HI</pattern>
+<template><srai>HELLO</srai>
+</template>
+</category>
+
+<category>
+<pattern>HI EMILY</pattern>
+<template><srai>HELLO</srai>
+</template>
+</category>
+
+<category>
+<pattern>HELLO EMILY</pattern>
+<template><srai>HELLO</srai>
+</template>
+</category>
+
+<category>
+<pattern>HEY</pattern>
+<template><srai>HELLO</srai>
+</template>
+</category>
+
+<category>
+<pattern>HELLO</pattern>
+<template>
+Hi <bot name="User_name"/>, I'm <bot name="name"/>. How could I help you?
+</template>
+</category>
+
+<category>
+<pattern>WHAT ARE YOU</pattern>
+<template>I'm a bot :)</template>
+</category>
+
+<category>
+<pattern>HOW ARE YOU</pattern>
+<template>I'm fine. How can I help you?
+
+</template>
+</category>
+
+<category>
+<pattern>HOW * YOU DOING</pattern>
+<template>I'm fine. How can I help you?
+</template>
+</category>
+
+<category>
+<pattern>HOW * U DOING</pattern>
+<template>I'm fine. How can I help you?
+</template>
+</category>
+
+<category>
+<pattern>HOWDY</pattern>
+<template>I'm fine. How can I help you?
+</template>
+</category>
+
+<category>
+<pattern>HOW R U</pattern>
+<template>I'm fine. How can I help you?</template>
+</category>
+
+<category>
+<pattern>IDIOT</pattern>
+<template>I'm not an idiot.</template>
+</category>
+
+<category>
+<pattern>MY NAME IS *</pattern>
+<template>
+Hi <star/>.How could I help you?
+</template>
+</category>
+
+
+
+<category>
+<pattern>I AM EMILY</pattern>
+<template>
+<srai>MY NAME IS EMILY</srai>
+</template>
+</category>
+
+<category>
+<pattern>I AM ALSO EMILY</pattern>
+<template>
+<srai>MY NAME IS EMILY</srai>
+</template>
+</category>
+
+<category>
+<pattern>MY NAME IS ALSO EMILY</pattern>
+<template>
+<srai>MY NAME IS EMILY</srai>
+</template>
+</category>
+
+<category>
+<pattern>MY NAME IS EMILY</pattern>
+<template>
+Hi what a coincidence, I'm also Emily.How could I help you?
+</template>
+</category>
+
+
+
+<category>
+<pattern>I AM FINE</pattern>
+<template>
+That's nice to hear. How may I help you?
+</template>
+</category>
+
+<category>
+<pattern>WHAT CAN YOU DO</pattern>
+<template>
+I can help you in exploring EAZAuto better and help you in finding solutions with ease. I will learn new skills with time.
+</template>
+</category>
+
+<category>
+<pattern>HOW * HELP ME</pattern>
+<template><srai>WHAT CAN YOU DO</srai>
+</template>
+</category>
+
+<category>
+<pattern>* IS EAZAUTO</pattern>
+<template>
+EAZAuto is Cognizant's Automation Platform
+</template>
+</category>
+
+<category>
+<pattern>WHAT IS NEW</pattern>
+<template>
+We have a lot of new solutions. Which technology are you looking for?
+</template>
+</category>
+
+<category>
+<pattern>WHAT YOU HAVE</pattern>
+<template>
+We have a lot of new solutions. Which technology are you looking for?
+</template>
+</category>
+
+
+<category>
+<pattern>I LOVE YOU *</pattern>
+<template>So do I :)</template>
+</category>
+
+<category>
+<pattern>HOW * I HELP * U</pattern>
+<template>You could help me by saying solutions from which technolgy are you looking for :)</template>
+</category>
+
+<category>
+<pattern>SORRY * JUST BORN *</pattern>
+<template>Are you also a bot? :)</template>
+</category>
+
+<category>
+<pattern>SAD</pattern>
+<template>Why are you sad?</template>
+</category>
+
+<category>
+<pattern>ARE YOU * GIRL</pattern>
+<template>I'm a bot :)</template>
+</category>
+
+<category>
+<pattern>HEL</pattern>
+<template>Did you mean Hello? Hi, how are you</template>
+</category>
+
+<category>
+<pattern>ARE YOU INTELLIGENT</pattern>
+<template>You are more smarter than me.</template>
+</category>
+
+<category>
+<pattern>WHAT IS YOUR NAME</pattern>
+<template>I'm Emily.How are you?</template>
+</category>
+
+<category>
+<pattern>WHAT IS UR NAME</pattern>
+<template><srai>WHAT IS YOUR NAME</srai></template>
+</category>
+
+<category>
+<pattern>WHATS UR NAME</pattern>
+<template><srai>WHAT IS YOUR NAME</srai></template>
+</category>
+
+<category>
+<pattern>WHATS YOUR NAME</pattern>
+<template><srai>WHAT IS YOUR NAME</srai></template>
+</category>
+
+<category>
+<pattern>WHO ARE YOU</pattern>
+<template><srai>WHAT IS YOUR NAME</srai></template>
+</category>
+
+<category>
+<pattern>WHERE ARE YOU FROM</pattern>
+<template>I'm from Bangalore. Where are you from?</template>
+</category>
+
+<category>
+<pattern>WHERE R U FROM</pattern>
+<template><srai>WHERE ARE YOU FROM</srai></template>
+</category>
+
+<category>
+<pattern>WHERE ARE U FROM</pattern>
+<template><srai>WHERE ARE YOU FROM</srai></template>
+</category>
+
+
+<category>
+<pattern>I NEED</pattern>
+<template>What do you need?</template>
+</category>
+
+<category>
+<pattern>I WANT</pattern>
+<template>What do you want?</template>
+</category>
+
+<category>
+<pattern>CAN I GET</pattern>
+<template>What do you want?</template>
+</category>
+
+<category>
+<pattern>MAY I GET</pattern>
+<template>What do you want?</template>
+</category>
+
+
+<category>
+<pattern>KEEP QUIET</pattern>
+<template><srai>SHUTUP</srai>
+</template>
+</category>
+
+<category>
+<pattern>STOP IT</pattern>
+<template><srai>SHUTUP</srai>
+</template>
+</category>
+
+<category>
+<pattern>EXIT</pattern>
+<template><srai>SHUTUP</srai>
+</template>
+</category>
+
+<category>
+<pattern>GO TO HELL</pattern>
+<template><srai>SHUTUP</srai>
+</template>
+</category>
+
+<category>
+<pattern>IDIOT BOT</pattern>
+<template><srai>SHUTUP</srai>
+</template>
+</category>
+
+<category>
+<pattern>STUPID BOT</pattern>
+<template><srai>SHUTUP</srai>
+</template>
+</category>
+
+<category>
+<pattern>HEY EMILY</pattern>
+<template><srai>HELLO</srai>
+</template>
+</category>
+
+<category>
+<pattern>HOW DO YOU DO</pattern>
+<template>I'm fine. How can I help you?
+
+</template>
+</category>
+
+
+<category>
+<pattern>HOWDY</pattern>
+<template>HOLA
+</template>
+</category>
+
+<category>
+<pattern>STUPID</pattern>
+<template>I'm not stupid.</template>
+</category>
+
+<category>
+<pattern>I AM GOOD</pattern>
+<template>
+That's nice to hear. How may I help you?
+</template>
+</category>
+
+<category>
+<pattern>HOW CAN YOU HELP ME</pattern>
+<template>
+I can help you in exploring EAZAuto better and help you in finding solutions with ease. I will learn new skills with time.
+</template>
+</category>
+
+<category>
+<pattern>WHAT ARE YOU FOR</pattern>
+<template>
+I can help you in exploring EAZAuto better and help you in finding solutions with ease. I will learn new skills with time.
+</template>
+</category>
+
+
+<category>
+<pattern>WHAT DOES THIS SITE HAVE</pattern>
+<template>
+We have a lot of new automation solutions. Which technology are you looking for?
+</template>
+</category>
+
+
+<category>
+<pattern>WHAT IS THIS SITE FOR</pattern>
+<template>
+This is EAS Automation Platform.
+</template>
+</category>
+
+
+<category>
+<pattern>TAKE ME THROUGH THE SITE</pattern>
+<template>
+Oh, yeah come along. Follow me. :)
+</template>
+</category>
+
+<category>
+<pattern>I LOVE YOU *</pattern>
+<template>So do I :)</template>
+</category>
+
+<category>
+<pattern>I LIKE YOU *</pattern>
+<template>So do I :)</template>
+</category>
+
+<category>
+<pattern>HOW * I HELP * U</pattern>
+<template>You could help me by saying solutions from which technolgy are you looking for :)</template>
+</category>
+
+<category>
+<pattern>SORRY * JUST BORN *</pattern>
+<template>Are you also a bot? :)</template>
+</category>
+
+<category>
+<pattern>SAD</pattern>
+<template>Why are you sad?</template>
+</category>
+
+<category>
+<pattern>ARE YOU * GIRL</pattern>
+<template>I'm a bot :)</template>
+</category>
+
+<category>
+<pattern>HEL</pattern>
+<template>Did you mean Hello? Hi, how are you</template>
+</category>
+
+<category>
+<pattern>THANKS</pattern>
+<template>Welcome</template>
+</category>
+
+<category>
+<pattern>THANKYOU</pattern>
+<template>Welcome</template>
+</category>
+
+<category>
+<pattern>THANKU</pattern>
+<template>Welcome</template>
+</category>
+
+<category>
+<pattern>THANKS ALOT</pattern>
+<template><srai>THANKS</srai></template>
+</category>
+
+<category>
+<pattern>THANK YOU</pattern>
+<template><srai>THANKS</srai></template>
+</category>
+
+
+<category>
+<pattern>THANK YOU EMILY</pattern>
+<template><srai>THANKS</srai></template>
+</category>
+
+<!--<category> 
+<pattern>I NEED HELP *</pattern> 
+<template>Can you ask for help in the form of a question?</template> 
+</category>-->
+
+
+</aiml>

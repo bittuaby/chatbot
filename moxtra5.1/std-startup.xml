@@ -1,0 +1,20 @@
+<aiml version="1.0">
+
+<!-- This category works with the Standard AIML Set -->
+<category>
+<pattern>LOAD AIML B</pattern>
+<template>
+
+<!-- Load standard AIML set -->
+<learn>./standard/*.aiml</learn>
+<!--
+<learn>./standard/std-*.aiml</learn>
+<learn>./replyModules/othersModule/standard/Priya/std-*.aiml</learn>
+<learn>./standard/Set2/std-*.aiml</learn>-->
+<!-- Load dialogs -->
+<!--<learn>./emil/dialogs/personality/*.aiml</learn>-->
+
+</template>
+</category>
+
+</aiml>

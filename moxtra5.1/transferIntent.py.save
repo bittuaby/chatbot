@@ -1,0 +1,22 @@
+def getConversationResponse(userid,step,inputText):
+	with open("transferConversation.cv") as f:
+		lines=f.readlines()
+		for line in lines:
+			if(line.split(",")[0]==step):
+				reply=line.split(",")[1]
+				if(reply=="checkBeneficiary"):
+					if("abcd" in inputText.lower()):
+
+						reply="next"
+					else:
+						reply="Please specify the correct beneficiary name"
+					return reply
+				elif(reply=="checkCurrency"):
+					if("eur" in inputText.lower()
+
+
+
+
+
+def writeToSummary(userid,key,value):
+

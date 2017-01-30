@@ -1,0 +1,3 @@
+PreformatCode,BeneficiaryName,BeneficiaryAccountNumber,BankRoutingCode,AccountNo,Amount,AccountType,Currency
+Preformat1CITI234,Manu Corp,234567890654,1234567,123456789012,500,Savings,Euros
+PreformatAVC12,ABC Corp,6456456,76567,8656,456,Credit,USD
